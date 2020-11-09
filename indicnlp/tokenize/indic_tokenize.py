@@ -17,7 +17,7 @@ handled.
 """
 import string, re, sys
 
-from indicnlp.common import IndicNlpException
+#from indicnlp.common import IndicNlpException
 
 ### tokenizer patterns 
 triv_tokenizer_indic_pat=re.compile(r'(['+string.punctuation+r'\u0964\u0965'+r'])')
@@ -98,14 +98,14 @@ def trivial_tokenize(text,lang='hi'):
     else:
         return trivial_tokenize_indic(text)
 
-# if __name__ == '__main__': 
+if __name__ == '__main__': 
 
-#     if len(sys.argv)<4:
-#         print("Usage: python indic_tokenize.py <infile> <outfile> <language>")
-#         sys.exit(1)
+     if len(sys.argv)<4:
+         print("Usage: python indic_tokenize.py <infile> <outfile> <language>")
+         sys.exit(1)
 
-#     with open(sys.argv[1],'r', encoding='utf-8') as ifile:
-#         with open(sys.argv[2],'w', encoding='utf-8') as ofile:
-#             for line in ifile:
-#                 tokenized_line=' '.join(trivial_tokenize(line,sys.argv[3]))
-#                 ofile.write(tokenized_line)
+     with open(sys.argv[1],'r', encoding='utf-8') as ifile:
+         with open(sys.argv[2],'w', encoding='utf-8') as ofile:
+             for line in ifile:
+                 tokenized_line=' '.join(trivial_tokenize(line,sys.argv[3]))
+                 ofile.write(tokenized_line)
